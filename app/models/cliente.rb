@@ -8,7 +8,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  tipo                   :string
+#  tipo                   :integer
 #  cpf                    :string
 #  cnpj                   :string
 #  nome                   :string
@@ -16,6 +16,7 @@
 #  endereco               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  deleted_at             :datetime
 #
 class Cliente < ApplicationRecord
   # Include default devise modules. Others available are:

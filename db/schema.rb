@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_185235) do
+ActiveRecord::Schema.define(version: 2020_05_21_131530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,14 @@ ActiveRecord::Schema.define(version: 2020_05_20_185235) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "saques", force: :cascade do |t|
+    t.decimal "valor"
+    t.bigint "conta_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conta_id"], name: "index_saques_on_conta_id"
+  end
+
   create_table "transferencias", force: :cascade do |t|
     t.decimal "valor"
     t.bigint "conta_origem_id"
@@ -72,4 +80,5 @@ ActiveRecord::Schema.define(version: 2020_05_20_185235) do
   end
 
   add_foreign_key "contas", "clientes"
+  add_foreign_key "saques", "contas"
 end

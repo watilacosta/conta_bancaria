@@ -3,11 +3,12 @@
     %li
       = link_to 'Minha Conta', conta_path(current_cliente.conta)
     %li
-      = link_to 'Encerrar', edit_conta_path(current_cliente.conta)
+      = link_to 'Saque', new_saque_path
     %li
       = link_to 'Depósito', new_deposito_path
-    %li
-      = link_to 'Sacar'
+    %li.divider{tabindex: "-1"}
+      %li
+        = link_to 'Encerrar', edit_conta_path(current_cliente.conta)
 
 %nav
   .container

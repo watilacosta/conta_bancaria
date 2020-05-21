@@ -10,6 +10,7 @@
 #  status     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  deleted_at :datetime
 #
 class ContasController < ApplicationController
   before_action :set_conta, only: [:show, :edit, :update]

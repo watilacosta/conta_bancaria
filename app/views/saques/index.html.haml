@@ -1,0 +1,23 @@
+%h1 Listing saques
+
+%table
+  %thead
+    %tr
+      %th Valor
+      %th Conta
+      %th
+      %th
+      %th
+
+  %tbody
+    - @saques.each do |saque|
+      %tr
+        %td= saque.valor
+        %td= saque.conta
+        %td= link_to 'Show', saque
+        %td= link_to 'Edit', edit_saque_path(saque)
+        %td= link_to 'Destroy', saque, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Saque', new_saque_path

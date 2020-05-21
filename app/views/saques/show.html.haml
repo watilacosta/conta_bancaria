@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Valor:
+  = @saque.valor
+%p
+  %b Conta:
+  = @saque.conta
+
+= link_to 'Edit', edit_saque_path(@saque)
+\|
+= link_to 'Back', saques_path

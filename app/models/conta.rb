@@ -10,6 +10,7 @@
 #  status     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  deleted_at :datetime
 #
 class Conta < ApplicationRecord
   belongs_to :cliente, dependent: :destroy, optional: true

@@ -31,10 +31,8 @@ class DepositosController < ApplicationController
     respond_to do |format|
       if @deposito.save
         format.html { redirect_to conta_path(@conta), notice: 'Deposito realizado com sucesso!' }
-        format.json { render :show, status: :created, location: @deposito }
       else
         format.html { render :new }
-        format.json { render json: @deposito.errors, status: :unprocessable_entity }
       end
     end
   end

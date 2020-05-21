@@ -1,0 +1,15 @@
+-# frozen_string_literal: true
+= simple_form_for(@saque, html: {class: 'row'}) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .row
+    .col.s12.m6.l6
+      = f.association :conta, collection: [current_cliente.conta], label_method: :numero, value_method: :id, include_blank: 'Selecione sua conta'
+    .col.s12.m6.l6
+      = f.input :valor
+
+  .row
+    .col
+      = link_to 'voltar', conta_path(current_cliente.conta), class: 'btn'
+      = f.button :submit, 'Sacar valor'
