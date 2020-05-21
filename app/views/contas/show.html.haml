@@ -10,7 +10,7 @@
           Mostrar Saldo
         .collapsible-body
           .row
-            .col.s6
+            .col.s12
               %h5= number_to_currency(@conta.saldo)
 
   .col.s12.m12.l8
@@ -24,12 +24,14 @@
             = simple_form_for :search, url: conta_path(@conta), method: :get, html: {class: 'col s12'} do |f|
               .row
                 -# .input-field.col.s1
-                .input-field.col.s6
+                .input-field.col.s4
                   -# %i.material-icons.prefix date_range
                   = f.input :dt_inicial, label: false, input_html: { placeholder: 'Data Inicial', class: 'datepicker' }
-                .input-field.col.s6
+                .input-field.col.s4
                   -# %i.material-icons.prefix date_range
                   = f.input :dt_final, label: false, input_html: { placeholder: 'Data Final', class: 'datepicker' }
-          
+                .col.s3.valign-wrapper
+                  %button.btn.btn-large.waves-effect.waves-light{:name => "action", :type => "submit"} Extrato
+
           .row
             = render 'contas/extrato'
