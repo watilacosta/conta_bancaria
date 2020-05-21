@@ -778,6 +778,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@fortawesome/fontawesome-free@^5.13.0":
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
+  integrity sha512-xKOeQEl5O47GPZYIMToj6uuA2syyFlq9EMSl2ui0uytjY9xbe8XS0pexNWmxrdcCyNGyDmLyYw5FtKsalBUeOg==
+
 "@rails/actioncable@^6.0.0":
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.3.tgz#722b4b639936129307ddbab3a390f6bcacf3e7bc"
@@ -1691,9 +1696,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001043, caniuse-lite@^1.0.30001061:
-  version "1.0.30001061"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001061.tgz#80ca87ef14eb543a7458e7fd2b5e2face3458c9f"
-  integrity sha512-SMICCeiNvMZnyXpuoO+ot7FHpMVPlrsR+HmfByj6nY4xYDHXLqMTbgH7ecEkDNXWkH1vaip+ZS0D7VTXwM1KYQ==
+  version "1.0.30001062"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001062.tgz#d814b648338504b315222ace6f1a533d9a55e390"
+  integrity sha512-ei9ZqeOnN7edDrb24QfJ0OZicpEbsWxv7WusOiQGz/f2SfvBgHHbOEwBJ8HKGVSyx8Z6ndPjxzR6m0NQq+0bfw==
 
 case-sensitive-paths-webpack-plugin@^2.2.0:
   version "2.3.0"
@@ -2529,9 +2534,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.413:
-  version "1.3.441"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.441.tgz#094f71b992dca5bc96b798cfbaf37dc76302015a"
-  integrity sha512-leBfJwLuyGs1jEei2QioI+PjVMavmUIvPYidE8dCCYWLAq0uefhN3NYgDNb8WxD3uiUNnJ3ScMXg0upSlwySzQ==
+  version "1.3.443"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.443.tgz#b01c8933e820a728afc5dde7dd535c53ff55ab11"
+  integrity sha512-ty0LEroTap/xfMy31oQ3XX+Q377QvWvJaha2cmuXcbmBiX2EIB5SNDQ0hp8lhvxj63WG0zOgm/4MQ/oUBdfQqg==
 
 elliptic@^6.0.0, elliptic@^6.5.2:
   version "6.5.2"
@@ -3908,6 +3913,11 @@ jest-worker@^25.4.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
+jquery@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
+
 js-base64@^2.1.8:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.2.tgz#313b6274dda718f714d00b3330bbae6e38e90209"
@@ -4235,6 +4245,11 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+materialize-css@^1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-1.0.0-rc.2.tgz#b9e6b18f698c6ef77bb6b628d59147faf131eff5"
+  integrity sha512-FuQmSyq4Qv0ov7A2qXw0E6/jbQzSWx2P1pg2/XQDYTkkSc/GyiFAxu3fw9zgShwuTvyumEiw5jkxQWT9siqMBQ==
 
 md5.js@^1.3.4:
   version "1.3.5"

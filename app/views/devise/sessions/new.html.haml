@@ -1,0 +1,14 @@
+%h2 Entrar na Conta
+
+.row
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col s12' }) do |f|
+    .row
+      .input-field.col.s6
+        = f.input :email, label: false, required: false, autofocus: true, input_html: { autocomplete: "email", placeholder: 'Email' }
+      .input-field.col.s6
+        = f.input :password, label: false, required: false, input_html: { autocomplete: "current-password", placeholder: 'Senha' }
+    .row
+      .col-s12.right-align
+        = f.button :submit, "Entrar"
+        
+  = render "devise/shared/links"

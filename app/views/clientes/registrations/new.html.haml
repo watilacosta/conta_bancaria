@@ -1,0 +1,48 @@
+%h2 Criar Conta
+
+.row
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'col s12' }) do |f|
+    .row
+      .input-field.col.s6
+        = f.input :nome, required: true, autofocus: true, input_html: { autocomplete: "nome" }
+      .input-field.col.s6
+        = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }
+    
+    .row
+      = f.input :endereco, required: true, input_html: { autocomplete: "endereco" }
+    .row
+      .input-field.col.s6
+        = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+          input_html: { autocomplete: "new-password" }  
+      .input-field.col.s6
+        = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }
+    
+    .row
+      .input-field.col.s6
+        = f.input :tipo, label: false, collection: Cliente.tipos.keys, prompt: 'Selecione um tipo', input_html: { id: 'cliente_tipo' }
+      .input-field.col.s6
+        = f.input :razão_social, required: true, label: false, input_html: { autocomplete: "razao_social", id: 'razao_social', 
+          placeholder: 'Razão Social' }, readonly: true
+
+    .row
+      .input-field.col.s6
+        = f.input :cpf, required: true, label: false, input_html: { autocomplete: "cpf", id: 'cliente_cpf', 
+          placeholder: 'CPF' }, readonly: true
+      .input-field.col.s6
+        = f.input :cnpj, required: true, label: false, input_html: { autocomplete: "cnpj", id: "cliente_cnpj", 
+          placeholder: 'CNPJ' }, readonly: true
+
+    = f.button :submit, "Enviar Dados"
+
+:javascript
+  $("#cliente_tipo").on('change', function() {
+    if(this.value === 'fisica') {
+      $('#cliente_cnpj').hide()
+      $("#razao_social").hide()
+      $('#cliente_cpf').attr("readonly", false).show()
+    } else {
+      $('#cliente_cpf').hide()
+      $('#cliente_cnpj').attr("readonly", false).show()
+      $("#razao_social").attr("readonly", false).show()
+    }
+  })

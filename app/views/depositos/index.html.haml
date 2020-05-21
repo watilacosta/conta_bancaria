@@ -1,0 +1,33 @@
+%h1 Listing depositos
+
+%table
+  %thead
+    %tr
+      %th Valor
+      %th Nome
+      %th Sobrenome
+      %th Cpf
+      %th Ddd
+      %th Telefone
+      %th Numero conta
+      %th
+      %th
+      %th
+
+  %tbody
+    - @depositos.each do |deposito|
+      %tr
+        %td= deposito.valor
+        %td= deposito.nome
+        %td= deposito.sobrenome
+        %td= deposito.cpf
+        %td= deposito.ddd
+        %td= deposito.telefone
+        %td= deposito.numero_conta
+        %td= link_to 'Show', deposito
+        %td= link_to 'Edit', edit_deposito_path(deposito)
+        %td= link_to 'Destroy', deposito, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Deposito', new_deposito_path

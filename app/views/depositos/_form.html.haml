@@ -1,0 +1,27 @@
+-# frozen_string_literal: true
+= simple_form_for(@deposito, html: { class: 'col s12' }) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .row
+    .input-field.col.s12
+      = f.input :valor, input_html: { placeholder: 'Valor' }, label: false
+  .row
+    .input-field.col.s12.m6.l6
+      = f.input :nome, input_html: { placeholder: 'Nome' },  label: false
+    .input-field.col.s12.m6.l6
+      = f.input :sobrenome, input_html: { placeholder: 'Sobrenome' }, label: false
+  .row
+    .input-field.col.s12.m6.l6
+      = f.input :cpf, input_html: { placeholder: 'CPF' }, label: false
+    .input-field.col.s12.m6.l6
+      = f.input :numero_conta, input_html: { placeholder: 'Número da Conta' }, label: false
+  .row
+    .input-field.col.s12.m6.l6
+      = f.input :ddd, input_html: { placeholder: 'DDD' }, label: false
+    .input-field.col.s12.m6.l6
+      = f.input :telefone, input_html: { placeholder: 'Telefone' }, label: false
+  .row
+    .input-field.col.s12.m6.l6
+      = link_to 'voltar', conta_path(current_cliente.conta), class: 'btn'
+      = f.button :submit, 'Depositar'

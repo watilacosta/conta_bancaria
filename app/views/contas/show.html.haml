@@ -1,0 +1,13 @@
+.row
+  .col.s12
+    %h4="Conta Corrente #{@conta.numero}"
+  .col.s12.m6.l6
+    %ul.collapsible
+      %li
+        .collapsible-header
+          %i.material-icons attach_money
+          Mostrar Saldo
+        .collapsible-body
+          .row
+            .col.s6
+              %h5= number_to_currency(@conta.saldo)

@@ -1,0 +1,14 @@
+.col.s12.m7
+  %h2.header Abra sua conta agora!
+  .card.horizontal
+    .card-image
+      = image_tag('porco.jpg', size: '250')
+    .card-stacked
+      .card-content
+        %p É muito simples, preencha seus dados e faças suas operações online.
+      .card-action
+        = link_to new_cliente_registration_path, class: 'waves-effect waves-light btn' do
+          %i.material-icons.right> account_balance
+          criar conta
+
+

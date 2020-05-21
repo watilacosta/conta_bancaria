@@ -1,0 +1,32 @@
+- if cliente_signed_in?
+  %ul#dropdown1.dropdown-content
+    %li
+      = link_to 'Minha Conta', conta_path(current_cliente.conta)
+    %li
+      = link_to 'Encerrar', edit_conta_path(current_cliente.conta)
+    %li
+      = link_to 'Depósito', new_deposito_path
+    %li
+      = link_to 'Sacar'
+
+%nav
+  .container
+    .nav-wrapper
+      = link_to 'Online Bank', root_path, class: 'brand-logo'
+      %ul#nav-mobile.right.hide-on-med-and-down
+        - if cliente_signed_in?
+          %li
+            %a.dropdown-trigger{"data-target" => "dropdown1", :href => "#!"}
+              Conta
+              %i.material-icons.right arrow_drop_down
+
+          %li
+            = link_to destroy_cliente_session_path, method: :delete, title: 'Sair' do
+              %i.material-icons.left exit_to_app
+              Sair
+        - else
+          %li
+            = link_to new_cliente_session_path do
+              %i.material-icons.left lock
+              Entrar
+            

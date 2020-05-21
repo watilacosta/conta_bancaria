@@ -1,0 +1,27 @@
+%h1 Listing transferencias
+
+%table
+  %thead
+    %tr
+      %th Valor
+      %th Conta origem
+      %th Conta destino
+      %th Taxa
+      %th
+      %th
+      %th
+
+  %tbody
+    - @transferencias.each do |transferencia|
+      %tr
+        %td= transferencia.valor
+        %td= transferencia.conta_origem
+        %td= transferencia.conta_destino
+        %td= transferencia.taxa
+        %td= link_to 'Show', transferencia
+        %td= link_to 'Edit', edit_transferencia_path(transferencia)
+        %td= link_to 'Destroy', transferencia, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Transferencia', new_transferencia_path

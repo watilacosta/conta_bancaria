@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Valor:
+  = @transferencia.valor
+%p
+  %b Conta origem:
+  = @transferencia.conta_origem
+%p
+  %b Conta destino:
+  = @transferencia.conta_destino
+%p
+  %b Taxa:
+  = @transferencia.taxa
+
+= link_to 'Edit', edit_transferencia_path(@transferencia)
+\|
+= link_to 'Back', transferencias_path

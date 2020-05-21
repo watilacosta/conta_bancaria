@@ -1,0 +1,13 @@
+%h2 Recuperação de senha
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email,
+      required: true,
+      autofocus: true,
+      input_html: { autocomplete: "email" }
+  .form-actions
+    %br
+    = f.button :submit, "Recuperar senha"
+%br
+= render "devise/shared/links"
