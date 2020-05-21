@@ -1,7 +1,8 @@
 .row
   .col.s12
-    %h4="Conta Corrente #{@conta.numero}"
-  .col.s12.m6.l6
+    %h4="Conta Corrente - #{@conta.numero}"
+.row
+  .col.s12.m12.l4
     %ul.collapsible
       %li
         .collapsible-header
@@ -11,3 +12,24 @@
           .row
             .col.s6
               %h5= number_to_currency(@conta.saldo)
+
+  .col.s12.m12.l8
+    %ul.collapsible
+      %li
+        .collapsible-header
+          %i.material-icons account_balance
+          Extrato
+        .collapsible-body
+          .row
+            = simple_form_for :search, url: conta_path(@conta), method: :get, html: {class: 'col s12'} do |f|
+              .row
+                -# .input-field.col.s1
+                .input-field.col.s6
+                  -# %i.material-icons.prefix date_range
+                  = f.input :dt_inicial, label: false, input_html: { placeholder: 'Data Inicial', class: 'datepicker' }
+                .input-field.col.s6
+                  -# %i.material-icons.prefix date_range
+                  = f.input :dt_final, label: false, input_html: { placeholder: 'Data Final', class: 'datepicker' }
+          
+          .row
+            = render 'contas/extrato'
