@@ -13,7 +13,9 @@
 #  deleted_at :datetime
 #
 class ContasController < ApplicationController
-  before_action :set_conta, only: [:show, :edit, :update]
+  include ContasHelper
+
+  before_action :set_conta, only: [:show, :edit, :update, :extrato]
   skip_before_action :authenticate_cliente!, only: [:new, :create]
 
   def show
@@ -32,10 +34,8 @@ class ContasController < ApplicationController
     respond_to do |format|
       if @conta.save
         format.html { redirect_to @conta, notice: 'Conta was successfully created.' }
-        format.json { render :show, status: :created, location: @conta }
       else
         format.html { render :new }
-        format.json { render json: @conta.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,16 +45,24 @@ class ContasController < ApplicationController
       if @conta.update(conta_params)
         msg = @conta.encerrar? ? 'Conta encerrada com sucesso!' : 'Selecione a opção encerrar'
         format.html { redirect_to @conta, notice: msg }
-        format.json { render :show, status: :ok, location: @conta }
       else
         format.html { render :edit }
-        format.json { render json: @conta.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  def extrato
+    if params[:search] and params[:search][:dt_inicial] and params[:search][:dt_final]
+        @extratos = @conta.extrato(params[:search][:dt_inicial], params[:search][:dt_final])
+    end
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
   private
-  
+
   def set_conta
     @conta = Conta.find(params[:id])
   end

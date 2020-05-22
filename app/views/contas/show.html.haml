@@ -21,17 +21,14 @@
           Extrato
         .collapsible-body
           .row
-            = simple_form_for :search, url: conta_path(@conta), method: :get, html: {class: 'col s12'} do |f|
+            = simple_form_for :search, url: extrato_conta_path, method: :get, remote: true, html: {class: 'col s12'} do |f|
               .row
-                -# .input-field.col.s1
                 .input-field.col.s4
-                  -# %i.material-icons.prefix date_range
                   = f.input :dt_inicial, label: false, input_html: { placeholder: 'Data Inicial', class: 'datepicker' }
                 .input-field.col.s4
-                  -# %i.material-icons.prefix date_range
                   = f.input :dt_final, label: false, input_html: { placeholder: 'Data Final', class: 'datepicker' }
                 .col.s3.valign-wrapper
                   %button.btn.btn-large.waves-effect.waves-light{:name => "action", :type => "submit"} Extrato
 
           .row
-            = render 'contas/extrato'
+            %div#extrato

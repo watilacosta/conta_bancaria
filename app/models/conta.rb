@@ -31,4 +31,16 @@ class Conta < ApplicationRecord
   def depositos
     Deposito.find_by(numero_conta: self.numero)
   end
+
+  def extrato dt_inicial, dt_final
+    if dt_inicial.present? and dt_final.present?
+      @extratos = []
+      @extratos << Deposito.where(created_at: dt_inicial.to_date.beginning_of_day..dt_final.to_date.end_of_day)
+                           .order(created_at: :asc)
+      @extratos << Saque.where(created_at: dt_inicial.to_date.beginning_of_day..dt_final.to_date.end_of_day)
+                        .order(created_at: :asc)
+                        
+      @extratos.flatten!
+    end
+  end
 end

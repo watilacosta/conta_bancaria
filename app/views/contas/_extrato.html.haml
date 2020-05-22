@@ -1,20 +1,16 @@
-.col.s12
-  %table.striped.highlight.centered.responsive-table
-    %thead
-      %tr
-        %th Name
-        %th Item Name
-        %th Item Price
-    %tbody
-      %tr
-        %td Alvin
-        %td Eclair
-        %td $0.87
-      %tr
-        %td Alan
-        %td Jellybean
-        %td $3.76
-      %tr
-        %td Jonathan
-        %td Lollipop
-        %td $7.00
+- if extratos.present?
+  .col.s12
+    %table.responsive-table.centered
+      %thead
+        %tr
+          %th Tipo
+          %th Valor
+          %th Data
+      %tbody
+        - extratos.each do |extrato|
+          %tr{class: "#{deposito_or_extrato(extrato)}"}
+            %td=extrato.class
+            %td="#{sinal(extrato)} #{number_to_currency(extrato.valor)}"
+            %td=extrato.created_at.strftime('%d/%m/%Y')
+- else
+  %p Preencha os campos <b>Data Inicial</b> e <b>Data Final</b> para gerar o Extrato da sua Conta
