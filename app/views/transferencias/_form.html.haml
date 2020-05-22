@@ -1,13 +1,24 @@
 -# frozen_string_literal: true
-= simple_form_for(@transferencia) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+= simple_form_for(@transferencia, html: { class: 'col s12' }) do |f|
+  %span.orange-text.darken-4
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  .form-inputs
-    = f.input :valor
-    = f.association :conta_origem
-    = f.association :conta_destino
-    = f.input :taxa
-
-  .form-actions
-    = f.button :submit
+  .row
+    .input-field.col.s12
+      = f.input :valor, input_html: { placeholder: 'Valor em R$' }
+  .row
+    .input-field.col.s12.m6
+      = f.association :conta_origem, collection: [current_cliente.conta],
+        label_method: :numero, value_method: :id,
+        selected: current_cliente.conta
+    .input-field.col.s12.m6
+      = f.association :conta_destino, collection: Conta.where.not(cliente: current_cliente),
+        label_method: :numero, value_method: :id,
+        include_blank: 'Selecione a Conta de Destino'
+  .row
+    .input-field.col.s12.m6
+      = f.input :taxa, as: :hidden
+  .row
+    = link_to 'voltar', conta_path(current_cliente.conta), class: 'btn'
+    = f.button :submit, 'Transferir valor'

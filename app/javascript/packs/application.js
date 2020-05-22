@@ -7,7 +7,9 @@ require("@rails/activestorage").start()
 require("channels")
 
 $(document).on ('turbolinks:load', function() {
-  $(".dropdown-trigger").dropdown();
+  $(".dropdown-trigger").dropdown({
+    constrainWidth: false,
+  });
   $('select').formSelect();
   $('.collapsible').collapsible();
 

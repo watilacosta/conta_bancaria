@@ -14,10 +14,14 @@
 #
 class Conta < ApplicationRecord
   belongs_to :cliente, dependent: :destroy, optional: true
+  
+  acts_as_paranoid
 
   after_update :encerrar
 
-  acts_as_paranoid
+  validates :saldo, numericality: { greater_than_or_equal_to: 0 }
+  validates :agencia, :numero, :status, presence: true
+
 
   enum status: {
     aberta: 0,
@@ -35,11 +39,12 @@ class Conta < ApplicationRecord
   def extrato dt_inicial, dt_final
     if dt_inicial.present? and dt_final.present?
       @extratos = []
-      @extratos << Deposito.where(created_at: dt_inicial.to_date.beginning_of_day..dt_final.to_date.end_of_day)
+      @extratos << Deposito.where(created_at: dt_inicial.to_date.beginning_of_day..dt_final.to_date.end_of_day, numero_conta: self.numero)
                            .order(created_at: :asc)
-      @extratos << Saque.where(created_at: dt_inicial.to_date.beginning_of_day..dt_final.to_date.end_of_day)
+      @extratos << Saque.where(created_at: dt_inicial.to_date.beginning_of_day..dt_final.to_date.end_of_day, conta: self)
                         .order(created_at: :asc)
-                        
+      @extratos << Transferencia.where(created_at: dt_inicial.to_date.beginning_of_day..dt_final.to_date.end_of_day, conta_origem: self)
+                                .order(created_at: :asc)
       @extratos.flatten!
     end
   end

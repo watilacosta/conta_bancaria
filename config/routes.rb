@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     end
   end
   resources :saques, only: %i[show new create]
-  resources :transferencias
+  resources :transferencias, only: %i[show new create]
 end
